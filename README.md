@@ -34,6 +34,7 @@ bundle exec ruby test/run_tests.rb
 ```
 
 ### File Structure
+```
 coding-challenge-1.3/
 ├── lib/
 │ ├── currency_exchange.rb # Main module for currency exchange logic
@@ -53,6 +54,7 @@ coding-challenge-1.3/
 ├── INSTRUCTIONS.md # Instructions for the coding challenge
 ├── README.md
 └── .gitignore
+```
 
 ### Usage Examples
 To calculate the exchange rate between two currencies, you can use the following command in the Ruby console (adjust values for date and currency as required):
