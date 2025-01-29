@@ -1,0 +1,4 @@
+# Represents the current provider and can be modified to account for others (xml, api etc.)
+provider: json
+file_path: data/exchange_rates.json
+base_currency: EUR
