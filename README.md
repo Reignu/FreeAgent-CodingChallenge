@@ -78,20 +78,16 @@ This section outlines the key design decisions made during the development of th
 4. **Logging**: The application uses Ruby's built-in `Logger` class to track application behavior and errors. Key events, such as fetching rates and calculating exchange rates, are logged to help with debugging and understanding application behavior.
 
 5. **Configuration Validation**: The application includes a configuration validation method to ensure that the `config.yml` file contains all required fields and that they are correctly formatted. This validation helps prevent runtime errors by ensuring that the application is configured correctly before it runs.
-
-### Validation Checks
-- **Required Keys**: The configuration must include the following keys: `provider`, `file_path`, and `base_currency`. If any of these keys are missing, an error will be raised.
-- **Provider Validation**: The specified provider must be either `json` or `xml`. If an invalid provider is specified, an error will be raised.
+    - Required Keys: The configuration must include the following keys: `provider`, `file_path`, and `base_currency`. If any of these keys are missing, an error will be raised.
+    - Provider Validation: The specified provider must be either `json` or `xml`. If an invalid provider is specified, an error will be raised.
 
 6. **Exchange Rate Calculation**: The `CurrencyExchange.rate` method retrieves the exchange rates for the specified date using the selected provider. It then calculates the exchange rate between the two currencies based on the retrieved rates.
 
-7. **Testing**: The tests are written using the `Test::Unit` framework. The `currency_exchange_test.rb` file contains tests for both base and non-base currency exchanges, ensuring that the expected rates match the calculated rates.
-
-### Edge Case Tests
-In addition to standard tests, edge case tests have been implemented to cover potential failure scenarios, including:
-- **Invalid Currency Codes**: Tests that the application raises a `CurrencyNotFoundError` when an invalid currency code is provided.
-- **Dates with No Available Rates**: Tests that the application raises a `RateNotAvailableError` when a date is requested for which no rates are available.
-- **Base Currency Not in Rates**: Tests that the application raises a `CurrencyNotFoundError` when the base currency is not present in the fetched rates.
+7. **Testing**: The tests are written using the `Test::Unit` framework. The `currency_exchange_test.rb` file contains tests for both base and non-base currency exchanges, ensuring that the expected rates match the calculated rates.<br>
+    In addition to standard tests, edge case tests have been implemented to cover potential failure scenarios, including:
+    - **Invalid Currency Codes**: Tests that the application raises a `CurrencyNotFoundError` when an invalid currency code is provided.
+    - **Dates with No Available Rates**: Tests that the application raises a `RateNotAvailableError` when a date is requested for which no rates are available.
+    - **Base Currency Not in Rates**: Tests that the application raises a `CurrencyNotFoundError` when the base currency is not present in the fetched rates.
 
 8. **XML Provider**: The `xml_provider.rb` file is included as a placeholder for future implementation. It is designed to fetch exchange rates from XML data sources, allowing the application to support additional formats beyond JSON.
 
